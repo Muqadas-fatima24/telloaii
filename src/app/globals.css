@@ -3,7 +3,7 @@
 
 @theme {
   --color-back1: #0A1B22; 
-  
+  --color-back2:#172132;
   --color-white:#FFFFFF;
   --color-green:#2ABD83; 
   --color-black:#000000; 
@@ -12,7 +12,7 @@
   --font-secondary: var(--font-inter);
   --font-tertiary:  var(--font-Sedgwick_Ave);
   
---text-display: 3.815rem;
+--text-display: 3.3125rem;
   --text-h1: 3.052rem;
   --text-h2: 2.441rem;
   --text-h3: 1.953rem;

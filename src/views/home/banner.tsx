@@ -20,7 +20,7 @@ const Banner = () => {
       }}
     >
       <Container>
-      <div className=" pt-[5rem] mx-auto px-3 md:px-5w-full grid grid-cols-1 lg:grid-cols-2 gap-2 items-center">
+      <div className=" pt-[5rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-2 items-center">
         
         {/* Left Side: Content */}
         <div className="flex flex-col gap-6 z-10">
