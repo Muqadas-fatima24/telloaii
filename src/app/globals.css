@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-back1: #0A1B22; 
+  
+  --color-white:#FFFFFF;
+  --color-green:#2ABD83; 
+  --color-black:#000000; 
+  --color-border:#182F36;
+  --font-primary: var(--font-poppins);
+  --font-secondary: var(--font-inter);
+  --font-tertiary:  var(--font-Sedgwick_Ave);
+  
+--text-display: 3.815rem;
+  --text-h1: 3.052rem;
+  --text-h2: 2.441rem;
+  --text-h3: 1.953rem;
+  --text-h4: 1.563rem;
+  --text-base: 1rem;
+  --text-sm: 0.8rem;
+
+
+}
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: #ffffff;
+  color: #121f39;
+  font-size: 18px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+  .sadg {
+    font-family: 'Sedgwick Ave';
+}
