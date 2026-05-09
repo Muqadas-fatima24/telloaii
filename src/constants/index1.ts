@@ -218,3 +218,296 @@ export const revenueData: RevenueRecoveryProps = {
   ],
   buttonText: "Recover Your Lost Revenue"
 };
+
+
+// 6th part 
+ type UseCaseCard = {
+  title: string;
+  text: string;
+  src: string; // Icon path
+};
+
+type UseCaseProps = {
+  label: string;
+  title: {
+    before: string;
+    highlight: string;
+    after: string;
+  };
+    description: string;
+  cards: UseCaseCard[];
+};
+
+export const useCaseData: UseCaseProps = {
+  label: "USE CASES",
+  title: {
+    before: "Where TeloAI helps your practice",
+    highlight: "thrive.",
+    after: ""
+  },
+  description:"Your marketing may be working. The problem is what happens after the enquiry comes in.",
+  cards: [
+    {
+      title: "New patient enquiries",
+      text: "Reply instantly to people asking about becoming a patient or booking a check-up.",
+      src: "/peak2.png"
+    },
+    {
+      title: "Invisalign & cosmetic leads",
+      text: "Guide patients through the first stage of interest and encourage them to book a consultation.",
+      src: "/peak1.png"
+    },
+    {
+      title: "Implant enquiries",
+      text: "Support high-value treatment enquiries with quick, reassuring responses and clear next steps.",
+      src: "/peak3.png"
+    },
+    {
+      title: "Emergency enquiries",
+      text: "Help patients understand availability and direct them to urgent booking options.",
+      src: "/peak4.png"
+    },
+    {
+      title: "Old lead reactivation",
+      text: "Reconnect with previous enquiries who never booked and bring them back into conversation.",
+      src: "/peak5.png"
+    },
+    {
+      title: "Open day follow-up",
+      text: "Make sure every Invisalign, implant or open day enquiry is followed up properly and quickly.",
+      src: "/peak6.png"
+    }
+  ]
+};
+// 7th pricing
+
+export type PricingFeature = string;
+
+export type PricingPlan = {
+  name: string;
+  description: string;
+  price: string;
+  features: PricingFeature[];
+  buttonText: string;
+  isPopular?: boolean;
+};
+
+export type PricingSectionProps = {
+  label: string;
+  title: {
+    before: string;
+    highlight: string;
+    after: string;
+  };
+  subtitle: string;
+  plans: PricingPlan[];
+  footerNote: {
+    title: string;
+    text: string;
+  };
+};
+
+export const pricingData: PricingSectionProps = {
+  label: "PRICING",
+  title: {
+    before: "Simple pricing for",
+    highlight: "dental practices.",
+    after: ""
+  },
+  subtitle: "Choose the level of support your practice needs based on enquiry volume, integrations and growth goals.",
+  plans: [
+    {
+      name: "Starter",
+      description: "For smaller practices that want to respond faster to new enquiries.",
+      price: "£299",
+      buttonText: "Get Started",
+      features: [
+        "Instant WhatsApp lead response",
+        "Basic lead qualification",
+        "Treatment-specific conversation flows",
+        "Monthly reporting",
+        "Practice-branded messaging"
+      ]
+    },
+    {
+      name: "Growth",
+      description: "For practices actively spending on marketing and wanting to improve conversion.",
+      price: "£499",
+      isPopular: true,
+      buttonText: "Get Started",
+      features: [
+        "Everything in Starter",
+        "CRM integration",
+        "Old lead reactivation campaigns",
+        "Advanced treatment workflows",
+        "Open day follow-up sequences",
+        "Priority support"
+      ]
+    },
+    {
+      name: "Pro",
+      description: "For high-growth practices wanting deeper automation and diary booking.",
+      price: "£799",
+      buttonText: "Get Started",
+      features: [
+        "Everything in Growth",
+        "Dentally diary integration",
+        "Direct booking support",
+        "Multi-treatment campaign flows",
+        "Advanced reporting & custom journeys",
+        "Ongoing optimisation"
+      ]
+    }
+  ],
+  footerNote: {
+    title: "Optional setup from £499",
+    text: "Includes onboarding, practice information setup, treatment journey mapping, tone-of-voice setup and integration support."
+  }
+};
+
+// 8th part
+
+export type Review = {
+  logo: string;
+  rating: string;
+  quote: string;
+  author: string;
+  role: string;
+  isVideo?: boolean;
+  thumbnail?: string;
+};
+
+export type ReviewSectionProps = {
+  label: string;
+  title: {
+    before: string;
+    highlight: string;
+    after: string;
+  };
+  subtitle: string;
+  reviews: Review[];
+};
+export const reviewData: ReviewSectionProps = {
+  label: "REVIEWS",
+  title: {
+    before: "What Dentists Are",
+    highlight: "Saying.",
+    after: ""
+  },
+  subtitle: "Real results from practices using TeloAI",
+  reviews: [
+    {
+      logo: "/logo3.png",
+      rating: "5.0",
+      quote: "We have found TeloAI to be incredibly helpful since the point that we just started getting it all. We used the WhatsApp Agent to contact these patients in the waiting room and just to see an outcome of treatment cases we wouldn't have seen otherwise.",
+      author: "Regent Dental & Implant Clinic, Altrincham",
+      role: "Owner",
+    },
+    {
+      logo: "/vedio.png",
+      rating: "5.0",
+      quote: "", 
+      author: "Regent Dental",
+      role: "Treatment Coordinator",
+      isVideo: true,
+      thumbnail: "/vedio.png"
+    },
+    {
+      logo: "/logo2.png",
+      rating: "5.0",
+      quote: "TeloAI has allowed us to follow up, reactivate, and book in patients that would otherwise have fallen through the cracks. It's very easy to use and most of them are booked before we even know they've been reached out to because the messages go out automatically.",
+      author: "Aura Dental & Cosmetic Clinic",
+      role: "Head TCO",
+    },
+    {
+      logo: "/logo1.png",
+      rating: "5.0",
+      quote: "I've always loved keeping conversations on the go with leads, starting a conversation and seeing where it leads without being too pushy. TeloAI has given us the ability to focus on the patients in the practice whilst TeloAI deals with the leads that come in so that we don't miss any opportunities, generating more and more for the practice.",
+      author: "Thompson Dental, Lytham",
+      role: "Practice Manager",
+    }
+  ]
+};
+// question
+export type QuestionItem = {
+  number: string;
+  question: string;
+  subtext: string;
+};
+
+export type LeadLossSectionProps = {
+  label: string;
+  title: {
+    before: string;
+    highlight: string;
+  };
+  description: string;
+  buttonText: string;
+  questions: QuestionItem[];
+};
+export const leadLossData: LeadLossSectionProps = {
+  label: "THE NUMBERS",
+  title: {
+    before: "How many leads are you",
+    highlight: "losing each month?"
+  },
+  description: "Ask yourself the questions on the right. If even a small percentage of those leads converted, what would that be worth to your practice — this month, this quarter, this year?",
+  buttonText: "Find Out How Much You Could Recover",
+  questions: [
+    { number: "01", question: "How many enquiries come in after 5pm?", subtext: "Evenings & weekends" },
+    { number: "02", question: "How many leads wait until the next day?", subtext: "Cold within hours" },
+    { number: "03", question: "How many Meta or Google leads aren't followed up?", subtext: "Wasted ad spend" },
+    { number: "04", question: "How many old enquiries sit untouched in your CRM?", subtext: "Untapped Revenue" }
+  ]
+};
+// ....built]
+
+
+export interface Feature {
+  title: string;
+  desc: string;
+  icon: string;
+}
+
+export interface DentistrySectionProps {
+  data: {
+    label: string;
+    title: {
+      dark: string;
+      highlight: string;
+    };
+    description: string;
+    features: Feature[];
+  };
+}
+export const dentistryData: DentistrySectionProps['data'] = {
+
+    label: "BUILT FOR DENTISTRY",
+    title: {
+      dark: "Built for dentistry.",
+      highlight: "Not generic automation."
+    },
+    description: "TeloAI is designed around the way UK dental practices actually work — supporting common treatment journeys and working alongside your existing systems.",
+    features: [
+      {
+        title: "Dental treatment journeys",
+        desc: "Built around how UK practices actually consult, qualify and book — not generic chatbot scripts.",
+        icon: "/tooth-icon.png"
+      },
+      {
+        title: "Works with your stack",
+        desc: "Connects with CRM platforms and Dentally to push enquiries straight into your existing workflow.",
+        icon: "/plug-icon.png"
+      },
+      {
+        title: "Trained on dental tone",
+        desc: "Reassuring, professional, on-brand. TeloAI sounds like your best receptionist on her best day.",
+        icon: "/tone-icon.png"
+      },
+      {
+        title: "Hands over when it matters",
+        desc: "Clinical questions or sensitive situations get passed to your team — never auto-answered.",
+        icon: "/heart-icon.png"
+      }
+    ]
+  }

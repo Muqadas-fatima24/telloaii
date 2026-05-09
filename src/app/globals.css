@@ -8,6 +8,7 @@
   --color-green:#2ABD83; 
   --color-black:#000000; 
   --color-border:#182F36;
+  --color-text:#1C373F;
   --font-primary: var(--font-poppins);
   --font-secondary: var(--font-inter);
   --font-tertiary:  var(--font-Sedgwick_Ave);
@@ -19,8 +20,6 @@
   --text-h4: 1.563rem;
   --text-base: 1rem;
   --text-sm: 0.8rem;
-
-
 }
 html {
   overflow-x: hidden;
