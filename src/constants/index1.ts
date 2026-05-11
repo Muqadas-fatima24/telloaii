@@ -200,8 +200,11 @@ export type RevenueRecoveryProps = {
     after: string;
   };
   description: string;
-  stats: RevenueStat[];
-  buttonText: string;
+  stats?: RevenueStat[];
+  buttonText?: string;
+  buttonText1?: string;
+  buttonText2?:string;
+  botPara?:string;
 };
 export const revenueData: RevenueRecoveryProps = {
   label: "REVENUE RECOVERY",
@@ -218,7 +221,19 @@ export const revenueData: RevenueRecoveryProps = {
   ],
   buttonText: "Recover Your Lost Revenue"
 };
-
+// after faqs
+export const revenueData2: RevenueRecoveryProps = {
+  label: "",
+  title: {
+    before: "Ready to turn more dental leads into",
+    highlight: "booked patients?",
+    after: ""
+  },
+  description: "Your practice doesn't need more admin pressure. It needs a faster, smarter way to handle enquiries. TeloAI helps you respond instantly, recover missed opportunities and generate more value from your marketing.",
+  buttonText1: "Book Your Demo",
+  buttonText2:"See TeloAI in Action",
+  botPara:"Stop letting leads go cold. Start converting them while the interest is still high."
+};
 
 // 6th part 
  type UseCaseCard = {
@@ -367,67 +382,137 @@ export const pricingData: PricingSectionProps = {
 
 // 8th part
 
-export type Review = {
+// export type Review = {
+//   logo: string;
+//   rating: string;
+//   quote: string;
+//   author: string;
+//   role: string;
+//   isVideo?: boolean;
+//   thumbnail?: string;
+// };
+
+// export type ReviewSectionProps = {
+//   label: string;
+//   title: {
+//     before: string;
+//     highlight: string;
+//     after: string;
+//   };
+//   subtitle: string;
+//   reviews: Review[];
+// };
+// export const reviewData: ReviewSectionProps = {
+//   label: "REVIEWS",
+//   title: {
+//     before: "What Dentists Are",
+//     highlight: "Saying.",
+//     after: ""
+//   },
+//   subtitle: "Real results from practices using TeloAI",
+//   reviews: [ 
+//     {
+//       logo: "/logo3.png",
+//       rating: "5.0",
+//       quote: "We have found TeloAI to be incredibly helpful since the point that we just started getting it all. We used the WhatsApp Agent to contact these patients in the waiting room and just to see an outcome of treatment cases we wouldn't have seen otherwise.",
+//       author: "Regent Dental & Implant Clinic, Altrincham",
+//       role: "Owner",
+//     },
+//     {
+//       logo: "/vedio.png",
+//       rating: "5.0",
+//       quote: "", 
+//       author: "Regent Dental",
+//       role: "Treatment Coordinator",
+//       isVideo: true,
+//       thumbnail: "/vedio.png"
+//     },
+//     {
+//       logo: "/logo2.png",
+//       rating: "5.0",
+//       quote: "TeloAI has allowed us to follow up, reactivate, and book in patients that would otherwise have fallen through the cracks. It's very easy to use and most of them are booked before we even know they've been reached out to because the messages go out automatically.",
+//       author: "Aura Dental & Cosmetic Clinic",
+//       role: "Head TCO",
+//     },
+//     {
+//       logo: "/logo1.png",
+//       rating: "5.0",
+//       quote: "I've always loved keeping conversations on the go with leads, starting a conversation and seeing where it leads without being too pushy. TeloAI has given us the ability to focus on the patients in the practice whilst TeloAI deals with the leads that come in so that we don't miss any opportunities, generating more and more for the practice.",
+//       author: "Thompson Dental, Lytham",
+//       role: "Practice Manager",
+//     }
+//   ]
+// };
+
+export type ReviewCard = {
   logo: string;
-  rating: string;
+  rating: number;
   quote: string;
   author: string;
   role: string;
+  location: string;
   isVideo?: boolean;
+  videoUrl?: string;
   thumbnail?: string;
 };
 
-export type ReviewSectionProps = {
+export type ReviewDataProps = {
   label: string;
   title: {
     before: string;
     highlight: string;
-    after: string;
   };
-  subtitle: string;
-  reviews: Review[];
+  description: string;
+  reviews: ReviewCard[]; // Expecting 4 reviews to fill the 2x2 grid
 };
-export const reviewData: ReviewSectionProps = {
+
+export const reviewData: ReviewDataProps = {
   label: "REVIEWS",
   title: {
     before: "What Dentists Are",
     highlight: "Saying.",
-    after: ""
   },
-  subtitle: "Real results from practices using TeloAI",
+  description: "Real results from practices using Wasup",
   reviews: [
     {
-      logo: "/logo3.png",
-      rating: "5.0",
-      quote: "We have found TeloAI to be incredibly helpful since the point that we just started getting it all. We used the WhatsApp Agent to contact these patients in the waiting room and just to see an outcome of treatment cases we wouldn't have seen otherwise.",
-      author: "Regent Dental & Implant Clinic, Altrincham",
+      logo: "/logo3.png", // Replace with your actual paths
+      rating: 5.0,
+      quote: "We had hundreds of cold leads build over the year that we just couldn't get hold of. We used the WhatsApp agent to contact these patients in the evening and managed to secure €40,000 of treatment that we wouldn't have seen otherwise",
+      author: "Owner",
       role: "Owner",
-    },
-    {
-      logo: "/vedio.png",
-      rating: "5.0",
-      quote: "", 
-      author: "Regent Dental",
-      role: "Treatment Coordinator",
-      isVideo: true,
-      thumbnail: "/vedio.png"
-    },
-    {
-      logo: "/logo2.png",
-      rating: "5.0",
-      quote: "TeloAI has allowed us to follow up, reactivate, and book in patients that would otherwise have fallen through the cracks. It's very easy to use and most of them are booked before we even know they've been reached out to because the messages go out automatically.",
-      author: "Aura Dental & Cosmetic Clinic",
-      role: "Head TCO",
+      location: "Regent Dental & Implant Clinic, Yorkshire",
     },
     {
       logo: "/logo1.png",
-      rating: "5.0",
-      quote: "I've always loved keeping conversations on the go with leads, starting a conversation and seeing where it leads without being too pushy. TeloAI has given us the ability to focus on the patients in the practice whilst TeloAI deals with the leads that come in so that we don't miss any opportunities, generating more and more for the practice.",
-      author: "Thompson Dental, Lytham",
+      rating: 5.0,
+      quote: "Patients message us at all hours, evenings, weekends, late at night, and before Wasup those would just sit until the next morning. Now they get a reply within seconds and most of them are booked in before we've even opened.",
+      author: "Head PTO",
+      role: "Head PTO",
+      location: "NUYU Dentals & Asthetics, Bristol",
+    },
+    {
+      logo: "/vedio.png",
+      rating: 5.0,
+      quote: "Video review context", // This is the video box
+      author: "Treatment Coordinator",
+      role: "Treatment Coordinator",
+      location: "Regent Dental, Ilkley",
+      isVideo: true,
+      thumbnail: "/vedio.png", // The girl in the image
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXc", // Replace with actual video link
+    },
+    {
+      logo: "/logo2.png",
+      rating: 5.0,
+      quote: "Its always tricky juggling consultations on the day with leads coming in and also contacting patients about their existing treatment plans. Wasup has given us the ability to focus on the patients in the practice whilst it deals with new leads.",
+      author: "Practice Manager",
       role: "Practice Manager",
-    }
-  ]
+      location: "Thorpe Hesley Dental, Rotherham",
+    },
+  ],
 };
+
+
 // question
 export type QuestionItem = {
   number: string;
@@ -492,22 +577,74 @@ export const dentistryData: DentistrySectionProps['data'] = {
       {
         title: "Dental treatment journeys",
         desc: "Built around how UK practices actually consult, qualify and book — not generic chatbot scripts.",
-        icon: "/tooth-icon.png"
+        icon: "/mak1.png"
       },
       {
         title: "Works with your stack",
         desc: "Connects with CRM platforms and Dentally to push enquiries straight into your existing workflow.",
-        icon: "/plug-icon.png"
+        icon: "/mak2.png"
       },
       {
         title: "Trained on dental tone",
         desc: "Reassuring, professional, on-brand. TeloAI sounds like your best receptionist on her best day.",
-        icon: "/tone-icon.png"
+        icon: "/mak3.png"
       },
       {
         title: "Hands over when it matters",
         desc: "Clinical questions or sensitive situations get passed to your team — never auto-answered.",
-        icon: "/heart-icon.png"
+        icon: "/mak4.png"
       }
     ]
   }
+
+
+  // faqs
+
+  type FAQItem = {
+  question: string
+  answer: string
+}
+
+type FAQProps = {
+    label: string
+    title: {
+      before: string
+      highlight: string
+    }
+    questions: FAQItem[]
+}
+ export const faqData:FAQProps = {
+  label: "FAQ",
+  title: {
+    before: "Questions",
+    highlight: "answered"
+  },
+  questions: [
+    {
+      question: "Will patients know it's AI?",
+      answer: "TeloAI is designed to feel helpful, clear and practice-branded — not robotic. Patients get fast answers, your team gets better-qualified enquiries, and your practice gets more from the leads you're already generating."
+    },
+    {
+      question: "How quickly can we get set up?",
+      answer: "Setup usually takes less than 24 hours. We handle the integration and testing for you."
+    },
+{
+  question:"How quickly can we get set up?",
+  answer:"TeloAI is designed to feel helpful, clear and practice-branded — not robotic. Patients get fast answers, your team gets better-qualified enquiries."
+}
+,
+    {
+      question: "Does it integrate with Dentally?",
+      answer: "Setup usually takes less than 24 hours. We handle the integration and testing for you."
+    },
+{
+  question:"What if a patient asks something clinical?",
+  answer:"TeloAI is designed to feel helpful, clear and practice-branded — not robotic. Patients get fast answers, your team gets better-qualified enquiries."
+}
+  ,
+  {
+  question:"Can it work with our existing marketing?",
+  answer:"TeloAI is designed to feel helpful, clear and practice-branded — not robotic. Patients get fast answers, your team gets better-qualified enquiries."
+}
+  ]
+}

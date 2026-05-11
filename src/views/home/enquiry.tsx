@@ -44,7 +44,7 @@ export default function Enquiry({ data }: { data: StepsDataProps }) {
     {/* Steps */}
 <div className="mt-14 lg:mt-16 relative">
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-8 sm:gap-5 lg:gap-6 xl:gap-8 relative 
-  max-w-[320px] sm:max-w-[720px] lg:max-w-full sm:max-w-full mx-auto">
+  max-w-[280px] sm:max-w-[720px] lg:max-w-full sm:max-w-full mx-auto">
     
     {data.steps.map((step, index) => (
       <div
@@ -61,19 +61,19 @@ export default function Enquiry({ data }: { data: StepsDataProps }) {
       /* Mobile: Vertical Arc centered between boxes */
       /* Use z-0 but ensure translate-y pushes it out from under the card */
       z-0 top-[100%] left-1/2 -translate-x-1/2 -translate-y-6
-      w-[135px] h-[45px] block 
+      w-[113px] h-[40px] block 
       
       /* Tablet (md): Hide Arcs */
       md:hidden 
       sm:hidden
       /* Desktop (lg): Horizontal Wave between cards */
       lg:block lg:top-1/2 lg:-right-[82px] lg:left-auto lg:translate-x-0 lg:-translate-y-1/2 
-      lg:w-[80px] lg:h-[20px]
+      lg:w-[110px] lg:h-[14px]
     `}
   >
     <svg
       viewBox="0 0 60 20"
-      className="sm:w-[] lg:w-full h-full object-contain overflow-visible"
+      className=" lg:w-full h-full object-contain overflow-visible"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

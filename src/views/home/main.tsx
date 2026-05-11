@@ -13,7 +13,9 @@ import {
   pricingData,
   reviewData,
   leadLossData,
-  dentistryData
+  dentistryData,
+  faqData,
+  revenueData2,
 
  } from "@/constants/index1";
 import Meet from "./meet";
@@ -21,6 +23,8 @@ import Pricing from "./pricing";
 import What from "./what";
 import Question from "./question";
 import Built from "./built";
+import FAQ from "./faqs";
+import TellUsAbout from "./form";
 const HomeMain = () => {
   return (
     <>
@@ -31,9 +35,13 @@ const HomeMain = () => {
       <Recovery data={revenueData}/>
       <Cases data={useCaseData}/>
       <Pricing data={pricingData} />
-      {/* <What data={reviewData} />
+      {/* .... */}
+      <What data={reviewData} />
       <Question data={leadLossData} />
-      <Built data={dentistryData}/> */}
+      <Built data={dentistryData}/>
+      <FAQ data={faqData} />
+      <Recovery data={revenueData2}/>
+      <TellUsAbout/>
     </>
   );
 };

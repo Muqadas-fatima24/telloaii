@@ -40,7 +40,7 @@ export default function Practice({ data }: { data: DataProps1 }) {
             </span>
           </h2>
 
-          <p className="mt-2 sm:mt-4 text-black text-sm sm:text-base leading-relaxed font-primary max-w-[815px]">
+          <p className="mt-2 sm:mt-4 text-black text-[10px] sm:text-sm md:text-base leading-relaxed font-primary max-w-[815px]">
             {data.description}
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function Practice({ data }: { data: DataProps1 }) {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 // onMouseLeave={() => setHoveredIndex(null)}
-                className={`group rounded-[20px] border bg-white sm:p-8 p-6 transition-all duration-300
+                className={`group rounded-[20px] border bg-white sm:p-6 md:p-8 p-4 transition-all duration-300
                   ${
                     isActive
                       ? "border-[#A7DECA] shadow-[0_4px_30px_rgba(0,0,0,0.15)]"
@@ -67,7 +67,7 @@ export default function Practice({ data }: { data: DataProps1 }) {
                   }
                 `}
               >
-                <div
+                {/* <div
                   className={`w-10 h-10 rounded-[5px] sm:rounded-[14px] flex items-center justify-center mb-6 transition-all duration-300
                     ${
                       isActive
@@ -82,12 +82,36 @@ export default function Practice({ data }: { data: DataProps1 }) {
                     height={20}
                     alt="icon"
                     priority
-                  className={`w-[20px] h-auto object-contain
+                  className={`w-[20px] h-auto object-contain transition-all duration-300
                           ${isActive ? "brightness-0 invert" : ""}
 b                       `}
                   />
-                </div>
+                </div> */}
+<div
+  className={`relative mb-3 sm:mb-6 md:h-10 md:w-10 w-8 h-8 rounded-[5px] sm:rounded-[15px] flex items-center justify-center  overflow-hidden transition-all duration-500 ease-in-out
+    ${isActive ? "shadow-md" : "bg-[#E9F7F2]"}
+  `}
+>
+  <div 
+    className={`absolute inset-0 bg-[linear-gradient(180deg,#27B17E_0%,#33DE90_100%)] transition-opacity duration-500 ease-in-out
+      ${isActive ? "opacity-100" : "opacity-0"}
+    `}
+  />
 
+  {/* The Icon */}
+  <div className="relative z-10">
+    <Image
+      src={card.src.img}
+      width={20}
+      height={20}
+      alt="icon"
+      priority
+      className={`sm:w-[20px] w-[15px] h-auto object-contain transition-all duration-500 ease-in-out
+        ${isActive ? "brightness-0 invert" : ""}
+      `}
+    />
+  </div>
+</div>
                 <h3 className="font-primary text-black text-sm sm:text-base font-bold leading-snug">
                   {card.title}
                 </h3>

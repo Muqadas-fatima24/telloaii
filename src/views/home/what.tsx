@@ -1,157 +1,141 @@
-"use client";
+'use client'
 
-import React, { useState } from 'react';
+import Container from '@/components/container';
 import Image from 'next/image';
-import Container from "@/components/container";
-import { X } from 'lucide-react';
+import { useState } from 'react';
 
-export type Review = {
+type ReviewCard = {
   logo: string;
-  rating: string;
+  rating: number;
   quote: string;
   author: string;
   role: string;
+  location: string;
   isVideo?: boolean;
+  videoUrl?: string;
   thumbnail?: string;
-  videoUrl?: string; 
 };
 
-export type ReviewSectionProps = {
+type ReviewDataProps = {
   label: string;
-  title: { before: string; highlight: string; after: string; };
-  subtitle: string;
-  reviews: Review[];
+  title: {
+    before: string;
+    highlight: string;
+  };
+  description: string;
+  reviews: ReviewCard[]; // Expecting 4 reviews to fill the 2x2 grid
 };
 
-export default function What({ data }: { data: ReviewSectionProps }) {
+export default function Practice({ data }: { data: ReviewDataProps }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeVideo, setActiveVideo] = useState("");
+  const [activeVideo, setActiveVideo] = useState('');
 
-  const leftColumn = [data.reviews[0], data.reviews[2]];
-  const rightColumn = [data.reviews[1], data.reviews[3]];
-
-  const openVideo = (url: string) => {
+  const openModal = (url: string) => {
     setActiveVideo(url);
     setIsOpen(true);
   };
 
-  const renderCard = (review: Review, index: number) => {
-    if (!review) return null;
+  return (
+    <section className="w-full bg-[#F7F9FB] py-10 sm:py-20 font-poppins">
+      <Container>
+        {/* Header Section */}
+        <div className="sm:text-center text-left flex flex-col sm:items-center sm:mb-8 mb-6 md:mb-12">
+          <span className="text-green text-[10px] sm:text-base font-semibold tracking-widest uppercase">
+            {data.label}
+          </span>
 
-    if (review.isVideo) {
-      return (
-        <div 
-          key={index}
-          onClick={() => openVideo(review.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ")}
-          // Aspect-video ensures the 16:9 landscape shape from your screenshot
-          className="relative rounded-[24px] overflow-hidden cursor-pointer group w-full aspect-video shadow-md border border-[#CFE9DA]"
-        >
-          {/* Main Thumbnail - object-cover ensures it fills the 16:9 box without gaps */}
-          <Image
-            src={review.thumbnail || ""}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            alt="Review video thumbnail"
-            priority={index === 0}
-          />
-          
-          {/* Bottom Gradient: Matches the dark-to-transparent look in image_631ddc.png */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+          <h2 className="mt-2 text-black  text-[18px] sm:text-[32px] md:text-h2 font-bold leading-tight">
+            {data.title.before}{" "}
+            <span className="font-tertiary sadg text-green font-normal">
+              {data.title.highlight}
+            </span>
+          </h2>
 
-          {/* Text Content Overlay */}
-          <div className="absolute bottom-0 left-0 w-full p-5 md:p-8 text-white">
-             <h3 className="font-primary font-bold text-lg md:text-2xl mb-1">
-                {review.role}
-             </h3>
-             <p className="font-secondary text-sm md:text-base opacity-80 mb-3">
-                {review.author}
-             </p>
-             
-             {/* Five Star Rating */}
-             <div className="flex gap-1">
-               {[...Array(5)].map((_, i) => (
-                 <img key={i} src="/star.png" className="w-4 h-4 md:w-5 md:h-5" alt="star" />
-               ))}
-             </div>
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <div 
-        key={index}
-        className="relative rounded-[24px] bg-white p-8 shadow-sm border border-[#CFE9DA] min-h-[300px] flex flex-col justify-between"
-      >
-        <div>
-          <div className="flex justify-between items-center mb-6">
-            <div className="h-8 relative w-28">
-              <Image src={review.logo} fill className="object-contain object-left" alt="clinic logo" />
-            </div>
-            <div className="flex items-center gap-1 font-bold text-sm">
-              {review.rating}
-              <img src="/star.png" alt="star icon" className="w-4 h-4" />
-            </div>
-          </div>
-          <p className="font-secondary text-black text-[16px] leading-relaxed italic">
-            &ldquo;{review.quote}&rdquo;
+          <p className="mt-2 sm:mt-4 text-black text-[10px] sm:text-sm md:text-base max-w-[600px]">
+            {data.description}
           </p>
         </div>
-        <div className="mt-8">
-          <p className="font-bold text-base leading-tight">{review.role}</p>
-          <p className="text-sm opacity-60 mt-1">{review.author}</p>
-        </div>
-      </div>
-    );
-  };
 
-  return (
-    <section className="w-full bg-[#F7F9FB] py-16 md:py-24 relative">
-      <Container>
-        <div className="max-w-[1240px] mx-auto px-4">
+        {/* The Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           
-          <div className="mb-12 md:mb-20 text-center">
-            <p className="text-green text-sm font-bold tracking-[0.2em] uppercase mb-4">{data.label}</p>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-slate-900">
-              {data.title.before} <span className="sadg text-green italic font-normal">{data.title.highlight}</span>
-            </h2>
-            <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">{data.subtitle}</p>
+          {/* Left Column */}
+          <div className="flex flex-col gap-4">
+            <ReviewCard item={data.reviews[0]} />
+            <ReviewCard item={data.reviews[1]} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            {/* Left Column */}
-            <div className="space-y-8">
-              {leftColumn.map((review, idx) => renderCard(review, idx))}
-            </div>
-            {/* Right Column */}
-            <div className="space-y-8"> 
-              {rightColumn.map((review, idx) => renderCard(review, idx))}
+          {/* Right Column */}
+          <div className="flex flex-col gap-4">
+            {/* Video*/}
+<div
+  onClick={() => data.reviews[2].videoUrl && openModal(data.reviews[2].videoUrl)}
+  className="relative cursor-pointer overflow-hidden rounded-[24px] w-full h-[100%]  group"
+>
+  {/* sm:h-[100%] md:h-[370px] lg:h-[450px] xl:h-[470] */}
+  <Image
+    src={data.reviews[2].thumbnail || ''}
+    alt="Video thumbnail"
+    width={500}
+    height={100}
+    className="w-full h-full object-center object-cover transition-transform duration-500 group-hover:scale-102"
+  />
+</div>
+
+            <ReviewCard item={data.reviews[3]} />
+          </div>
+
+        </div>
+
+        {/* Video Modal Overlay */}
+        {isOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={() => setIsOpen(false)}>
+            <div className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden">
+              <iframe 
+                className="w-full h-full"
+                src={activeVideo}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
             </div>
           </div>
-        </div>
+        )}
+
+        <style>{`
+          .sadg { font-family: 'Sedgwick Ave', cursive; }
+        `}</style>
       </Container>
-
-      {/* Video Popup Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md">
-          <button 
-            onClick={() => setIsOpen(false)}
-            className="absolute top-8 right-8 text-white hover:text-green-400 transition-all p-2"
-            aria-label="Close video"
-          >
-            <X size={44} />
-          </button>
-          <div className="w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/20">
-            <iframe
-              src={activeVideo.includes("youtube.com") ? activeVideo.replace("watch?v=", "embed/") : activeVideo} 
-              className="w-full h-full"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )}
     </section>
+  );
+}
+
+// Sub-component
+function ReviewCard({ item }: { item: ReviewCard }) {
+  return (
+    <div className="bg-white border border-[#3E595A33]  px-5 py-6 sm:px-6 sm:py-8 md:px-7 md:py-10 lg:px-9 lg:py-12 rounded-[24px] shadow-sm hover:shadow-md transition-shadow">
+      <div className="flex justify-between items-center mb-6">
+        <Image src={item.logo} alt="brand" width={120} height={40} className="h-8 w-auto object-contain" />
+        <div className="flex items-center justify-center gap-2">
+
+  <span className="font-normal text-sm text-black">
+    {item.rating.toFixed(1)}
+  </span>
+  <Image
+    src="/star.png" 
+    alt="rating star"
+    width={16} 
+    height={16} 
+    className="object-contain"
+  />
+</div>
+      </div>
+      <p className="text-black font-normal text-sm sm:text-base leading-relaxed sm:mb-6 mb-4  pb-1 sm:pt-4 sm:pb-2 ">
+        {item.quote}
+      </p>
+      <div>
+        <h3 className="font-bold text-black text-sm sm:text-base" >{item.role}</h3>
+        <p className=" text-sm sm:text-base mt-1">{item.location}</p>
+      </div>
+    </div>
   );
 }
