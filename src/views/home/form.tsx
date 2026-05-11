@@ -86,7 +86,7 @@ const handleSubmit = (
               Share a few details and we will show you exactly how TeloAI fits into your existing workflow.
             </p>
 
-            <ul className="space-y-4 sm:d-block hidden">
+            <ul className="space-y-4 sm:block hidden">
               {['30-minute personalised walkthrough', 'Live ROI calculation', 'No obligation'].map((item, i) => (
                 <li key={i} className="flex  items-center gap-3 text-[10px] sm:text-sm md:text-base text-text font-primary">
                   <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#27B17E] flex items-center justify-center text-white text-[10px] font-normal">
@@ -97,7 +97,7 @@ const handleSubmit = (
                 
               ))}
             </ul>
-            <ul className="space-y-4 sm:d-none block">
+            <ul className="space-y-4 sm:hidden block">
               {['30-minute personalised walkthrough', 'Live ROI calculation', 'No obligation'].map((item, i) => (
                 <li key={i} className="flex  items-center gap-3 text-text text-[10px] sm:text-sm md:text-base font-primary">
                   <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#27B17E] flex items-center justify-center text-white  font-normal">
