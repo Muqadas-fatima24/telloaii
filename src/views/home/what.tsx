@@ -23,7 +23,7 @@ type ReviewDataProps = {
     highlight: string;
   };
   description: string;
-  reviews: ReviewCard[]; // Expecting 4 reviews to fill the 2x2 grid
+  reviews: ReviewCard[]; 
 };
 
 export default function Practice({ data }: { data: ReviewDataProps }) {
@@ -57,7 +57,7 @@ export default function Practice({ data }: { data: ReviewDataProps }) {
         </div>
 
         {/* The Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+        <div className="sm:grid grid-cols-1 hidden md:grid-cols-2 gap-4 items-start">
           
           {/* Left Column */}
           <div className="flex flex-col gap-4">
@@ -70,8 +70,7 @@ export default function Practice({ data }: { data: ReviewDataProps }) {
             {/* Video*/}
 <div
   onClick={() => data.reviews[2].videoUrl && openModal(data.reviews[2].videoUrl)}
-  className="relative cursor-pointer overflow-hidden rounded-[24px] w-full h-[100%]  group"
->
+  className="relative cursor-pointer overflow-hidden rounded-[24px] w-full h-[100%]  group">
   {/* sm:h-[100%] md:h-[370px] lg:h-[450px] xl:h-[470] */}
   <Image
     src={data.reviews[2].thumbnail || ''}
@@ -86,6 +85,39 @@ export default function Practice({ data }: { data: ReviewDataProps }) {
           </div>
 
         </div>
+
+
+
+{/* ...... */}
+
+   <div className="grid grid-cols-1 sm:hidden md:grid-cols-2 gap-4 items-start">
+          
+          {/* Left Column */}
+          <div className="flex flex-col gap-4">
+            <ReviewCard item={data.reviews[0]} />
+            <div
+  onClick={() => data.reviews[2].videoUrl && openModal(data.reviews[2].videoUrl)}
+  className="relative cursor-pointer overflow-hidden rounded-[24px] w-full h-[100%]  group">
+  {/* sm:h-[100%] md:h-[370px] lg:h-[450px] xl:h-[470] */}
+  <Image
+    src={data.reviews[2].thumbnail || ''}
+    alt="Video thumbnail"
+    width={500}
+    height={100}
+    className="w-full h-full object-center object-cover transition-transform duration-500 group-hover:scale-102"
+  />
+            </div>
+             <ReviewCard item={data.reviews[1]} />
+            <ReviewCard item={data.reviews[3]} />
+          </div>
+
+</div>
+
+
+{/* ....../ */}
+
+
+
 
         {/* Video Modal Overlay */}
         {isOpen && (
