@@ -117,8 +117,10 @@ const handleSubmit = (
     initialValues={initialValues}
     validationSchema={ContactSchema}
     onSubmit={handleSubmit}
+    validateOnBlur={true} 
+    validateOnChange={false}
   >
-    {({ errors, touched, isSubmitting }) => ( // Added missing render props parenthesis
+    {({ errors,touched, isSubmitting }) => ( // Added missing render props parenthesis
       <Form ref={formRef} className="space-y-6">
         {/* Full Name */}
         <div>
@@ -126,9 +128,9 @@ const handleSubmit = (
           <Field
             name="fullName"
             placeholder="Dr Jane Smith"
-            autoFocus
+         
             className={`text-sm w-full px-4 py-3 rounded-lg border outline-none transition-all placeholder:text-[#65758B] ${
-              errors.fullName && touched.fullName 
+           errors.fullName && touched.fullName
                 ? 'border-red-500' 
                 : 'border-[#3E595A33] focus:border-2 focus:border-[#2ABD83]'
             }`}
@@ -139,7 +141,7 @@ const handleSubmit = (
         {/* Practice & Role */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div>
-  <label className="block text-sm font-medium mb-2 text-black">Your Practice's Name</label>
+  <label className="block text-sm font-medium mb-2 text-black">Your Practices Name</label>
   <Field
     as="select" // This converts the input to a dropdown
     name="practiceName"
@@ -218,10 +220,6 @@ const handleSubmit = (
     )} 
   </Formik>
 </div>
-
-
-
-
 
 
         </div>
